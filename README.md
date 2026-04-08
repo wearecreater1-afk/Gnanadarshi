@@ -1,206 +1,301 @@
 <!DOCTYPE html>
-<html lang="kn">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>\u0c9c\u0ccd\u0c9e\u0cbe\u0ca8\u0ca6\u0cb0\u0ccd\u0cb6\u0cbf - Gnanadarshi</title>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Kannada:wght@300;400;600;700;900&family=Noto+Serif+Kannada:wght@400;700;900&display=swap" rel="stylesheet" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Gnanadarshi — Illuminate Your Learning</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
   <style>
     :root {
-      --saffron: #FF6B1A;
-      --deep-blue: #0A1628;
-      --gold: #F5C842;
-      --cream: #FDF6E3;
-      --teal: #0D7377;
-      --light-teal: #14A085;
-      --text-dark: #1A1A2E;
-      --text-mid: #3A3A5C;
-      --card-bg: #FFFFFF;
-      --section-bg: #F4F7FB;
+      --ink: #0d0d0d;
+      --cream: #f5f0e8;
+      --gold: #c9a84c;
+      --gold-light: #e8d49e;
+      --terracotta: #b85c38;
+      --sage: #4a6741;
+      --mist: #d8e4e2;
+      --shadow: rgba(13,13,13,0.12);
     }
 
-    * { margin: 0; padding: 0; box-sizing: border-box; }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     html { scroll-behavior: smooth; }
 
     body {
-      font-family: 'Noto Sans Kannada', sans-serif;
       background: var(--cream);
-      color: var(--text-dark);
+      color: var(--ink);
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 300;
       overflow-x: hidden;
     }
 
-    /* \u2500\u2500 NAV \u2500\u2500 */
-    nav {
-      position: fixed; top: 0; width: 100%; z-index: 1000;
-      background: rgba(10, 22, 40, 0.97);
-      backdrop-filter: blur(12px);
-      border-bottom: 2px solid var(--saffron);
-      padding: 0 1.5rem;
-    }
-    .nav-inner {
-      max-width: 1200px; margin: auto;
-      display: flex; align-items: center; justify-content: space-between;
-      height: 64px;
-    }
-    .logo {
-      display: flex; align-items: center; gap: 10px; text-decoration: none;
-    }
-    .logo-icon {
-      width: 42px; height: 42px;
-      background: linear-gradient(135deg, var(--saffron), var(--gold));
-      border-radius: 10px;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 1.4rem; font-weight: 900;
-      color: white; font-family: 'Noto Serif Kannada', serif;
-      box-shadow: 0 0 14px rgba(255, 107, 26, 0.5);
-    }
-    .logo-text { color: #fff; font-size: 1.2rem; font-weight: 700; line-height: 1.2; }
-    .logo-sub { color: var(--gold); font-size: 0.65rem; font-weight: 400; letter-spacing: 1px; }
-
-    .nav-links { display: flex; gap: 0.2rem; list-style: none; }
-    .nav-links a {
-      color: #ccc; text-decoration: none;
-      padding: 0.45rem 0.85rem; border-radius: 6px;
-      font-size: 0.88rem; font-weight: 600;
-      transition: all 0.2s;
-    }
-    .nav-links a:hover, .nav-links a.active {
-      color: #fff; background: rgba(255, 107, 26, 0.2);
-      color: var(--saffron);
-    }
-
-    .hamburger {
-      display: none; flex-direction: column; gap: 5px;
-      cursor: pointer; background: none; border: none; padding: 4px;
-    }
-    .hamburger span {
-      width: 24px; height: 2px; background: #fff;
-      border-radius: 2px; transition: 0.3s;
-    }
-
-    .mobile-menu {
-      display: none;
-      flex-direction: column;
-      background: rgba(10, 22, 40, 0.98);
-      padding: 1rem 1.5rem 1.5rem;
-      border-top: 1px solid rgba(255,255,255,0.08);
-    }
-    .mobile-menu a {
-      color: #ccc; text-decoration: none;
-      padding: 0.75rem 0; font-size: 1rem; font-weight: 600;
-      border-bottom: 1px solid rgba(255,255,255,0.08);
-      transition: color 0.2s;
-    }
-    .mobile-menu a:hover { color: var(--saffron); }
-    .mobile-menu.open { display: flex; }
-
-    /* \u2500\u2500 HERO \u2500\u2500 */
-    #home {
-      min-height: 100vh;
-      background: linear-gradient(160deg, var(--deep-blue) 0%, #0e2240 50%, #0d3d3f 100%);
-      display: flex; align-items: center;
-      padding: 100px 1.5rem 60px;
-      position: relative; overflow: hidden;
-    }
-    #home::before {
+    /* ── Noise texture overlay ── */
+    body::before {
       content: '';
-      position: absolute; inset: 0;
-      background: radial-gradient(ellipse 60% 60% at 80% 50%, rgba(255,107,26,0.1) 0%, transparent 70%),
-                  radial-gradient(ellipse 50% 50% at 20% 80%, rgba(13,115,119,0.15) 0%, transparent 70%);
+      position: fixed; inset: 0; z-index: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+      pointer-events: none;
+      opacity: 0.5;
     }
-    .hero-dots {
-      position: absolute; inset: 0; pointer-events: none;
-      background-image: radial-gradient(rgba(255,255,255,0.06) 1px, transparent 1px);
-      background-size: 32px 32px;
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1.4rem 4rem;
+      background: rgba(245,240,232,0.88);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(201,168,76,0.25);
     }
-    .hero-inner {
-      position: relative; z-index: 2;
-      max-width: 1200px; margin: auto; width: 100%;
-      display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center;
+
+    .nav-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.7rem;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      color: var(--ink);
+      text-decoration: none;
     }
-    .hero-badge {
-      display: inline-flex; align-items: center; gap: 8px;
-      background: rgba(245, 200, 66, 0.15);
-      border: 1px solid rgba(245, 200, 66, 0.4);
-      color: var(--gold); padding: 0.4rem 1rem;
-      border-radius: 50px; font-size: 0.8rem; font-weight: 600;
-      margin-bottom: 1.2rem; letter-spacing: 0.5px;
+
+    .nav-logo span { color: var(--gold); }
+
+    .nav-links {
+      display: flex; gap: 2.5rem; list-style: none;
     }
+
+    .nav-links a {
+      font-size: 0.82rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--ink);
+      text-decoration: none;
+      opacity: 0.7;
+      transition: opacity 0.2s, color 0.2s;
+    }
+
+    .nav-links a:hover { opacity: 1; color: var(--gold); }
+
+    .nav-cta {
+      background: var(--ink);
+      color: var(--cream) !important;
+      opacity: 1 !important;
+      padding: 0.55rem 1.4rem;
+      border-radius: 2px;
+      transition: background 0.2s !important;
+    }
+
+    .nav-cta:hover { background: var(--gold) !important; color: var(--ink) !important; }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      padding: 8rem 4rem 4rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-bg-circle {
+      position: absolute;
+      width: 600px; height: 600px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(201,168,76,0.18) 0%, transparent 70%);
+      right: -100px; top: 50%;
+      transform: translateY(-50%);
+      animation: pulse 6s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: translateY(-50%) scale(1); opacity: 0.8; }
+      50% { transform: translateY(-50%) scale(1.06); opacity: 1; }
+    }
+
+    .hero-content { z-index: 1; }
+
+    .hero-eyebrow {
+      font-size: 0.75rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1.5rem;
+      display: flex; align-items: center; gap: 0.8rem;
+    }
+
+    .hero-eyebrow::before {
+      content: '';
+      display: inline-block;
+      width: 32px; height: 1px;
+      background: var(--gold);
+    }
+
     .hero-title {
-      font-family: 'Noto Serif Kannada', serif;
-      font-size: clamp(2.2rem, 5vw, 3.8rem);
-      font-weight: 900; color: #fff; line-height: 1.15;
-      margin-bottom: 1rem;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(3.2rem, 6vw, 5.5rem);
+      font-weight: 300;
+      line-height: 1.08;
+      margin-bottom: 1.8rem;
+      color: var(--ink);
     }
-    .hero-title .highlight {
-      background: linear-gradient(90deg, var(--saffron), var(--gold));
-      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+
+    .hero-title em {
+      font-style: italic;
+      color: var(--terracotta);
     }
-    .hero-desc {
-      color: rgba(255,255,255,0.72); font-size: 1.05rem;
-      line-height: 1.8; margin-bottom: 2rem;
+
+    .hero-sub {
+      font-size: 1rem;
+      line-height: 1.75;
+      color: var(--ink);
+      opacity: 0.65;
+      max-width: 420px;
+      margin-bottom: 2.8rem;
     }
-    .hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; }
+
+    .hero-actions { display: flex; gap: 1.2rem; align-items: center; }
+
     .btn-primary {
-      background: linear-gradient(135deg, var(--saffron), #e05a0a);
-      color: #fff; padding: 0.85rem 1.8rem;
-      border-radius: 10px; font-weight: 700; font-size: 0.95rem;
-      text-decoration: none; border: none; cursor: pointer;
-      box-shadow: 0 4px 20px rgba(255,107,26,0.4);
-      transition: transform 0.2s, box-shadow 0.2s;
-      font-family: 'Noto Sans Kannada', sans-serif;
+      background: var(--ink);
+      color: var(--cream);
+      padding: 0.9rem 2.2rem;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.85rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      border: none; cursor: pointer;
+      text-decoration: none;
+      transition: background 0.25s, transform 0.2s;
+      display: inline-block;
     }
-    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 6px 28px rgba(255,107,26,0.55); }
-    .btn-outline {
-      background: transparent;
-      color: #fff; padding: 0.85rem 1.8rem;
-      border-radius: 10px; font-weight: 700; font-size: 0.95rem;
-      text-decoration: none; border: 2px solid rgba(255,255,255,0.3);
-      transition: all 0.2s; font-family: 'Noto Sans Kannada', sans-serif;
-      cursor: pointer;
-    }
-    .btn-outline:hover { border-color: var(--gold); color: var(--gold); }
 
-    .hero-stats {
-      display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem;
-    }
-    .stat-card {
-      background: rgba(255,255,255,0.07);
-      border: 1px solid rgba(255,255,255,0.12);
-      border-radius: 14px; padding: 1.5rem;
-      text-align: center;
-      backdrop-filter: blur(8px);
-      transition: transform 0.3s, background 0.3s;
-    }
-    .stat-card:hover { transform: translateY(-4px); background: rgba(255,255,255,0.11); }
-    .stat-num {
-      font-size: 2.2rem; font-weight: 900;
-      background: linear-gradient(90deg, var(--saffron), var(--gold));
-      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-      line-height: 1;
-    }
-    .stat-label { color: rgba(255,255,255,0.6); font-size: 0.82rem; margin-top: 0.4rem; }
+    .btn-primary:hover { background: var(--gold); color: var(--ink); transform: translateY(-2px); }
 
-    /* \u2500\u2500 SECTIONS COMMON \u2500\u2500 */
-    section { padding: 80px 1.5rem; }
-    .section-inner { max-width: 1200px; margin: auto; }
-    .section-tag {
-      display: inline-flex; align-items: center; gap: 6px;
-      color: var(--saffron); font-size: 0.8rem; font-weight: 700;
-      letter-spacing: 1.5px; text-transform: uppercase;
-      margin-bottom: 0.6rem;
+    .btn-ghost {
+      color: var(--ink);
+      font-size: 0.85rem;
+      letter-spacing: 0.06em;
+      text-decoration: none;
+      display: flex; align-items: center; gap: 0.5rem;
+      opacity: 0.65;
+      transition: opacity 0.2s;
     }
-    .section-tag::before { content: ''; width: 24px; height: 2px; background: var(--saffron); }
-    .section-title {
-      font-family: 'Noto Serif Kannada', serif;
-      font-size: clamp(1.6rem, 3vw, 2.4rem);
-      font-weight: 800; color: var(--text-dark);
+
+    .btn-ghost:hover { opacity: 1; }
+    .btn-ghost::after { content: '→'; font-size: 1rem; }
+
+    .hero-visual {
+      position: relative; z-index: 1;
+      display: flex; justify-content: center; align-items: center;
+    }
+
+    .hero-card-stack {
+      position: relative; width: 340px; height: 420px;
+    }
+
+    .hcard {
+      position: absolute;
+      background: white;
+      border-radius: 4px;
+      padding: 2rem;
+      box-shadow: 0 12px 40px var(--shadow);
+      transition: transform 0.3s;
+    }
+
+    .hcard:nth-child(1) {
+      width: 280px; top: 0; right: 0;
+      background: var(--ink); color: var(--cream);
+      transform: rotate(3deg);
+    }
+
+    .hcard:nth-child(2) {
+      width: 260px; top: 100px; left: 0;
+      background: var(--gold-light);
+      transform: rotate(-2deg);
+    }
+
+    .hcard:nth-child(3) {
+      width: 270px; bottom: 0; right: 20px;
+      background: var(--mist);
+      transform: rotate(1deg);
+    }
+
+    .hero-card-stack:hover .hcard:nth-child(1) { transform: rotate(5deg) translateY(-8px); }
+    .hero-card-stack:hover .hcard:nth-child(2) { transform: rotate(-4deg) translateY(4px); }
+    .hero-card-stack:hover .hcard:nth-child(3) { transform: rotate(2deg) translateX(8px); }
+
+    .hcard-label {
+      font-size: 0.65rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      opacity: 0.6;
       margin-bottom: 0.8rem;
     }
-    .section-desc { color: var(--text-mid); font-size: 1rem; max-width: 600px; line-height: 1.7; }
 
-    /* \u2500\u2500 CURRENT AFFAIRS \u2500\u2500 */
-    #current-affairs { background: var(--section-bg); }
-    .affairs-grid {
-      display: grid; grid-template-columns: repeat
+    .hcard-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.3rem;
+      font-weight: 600;
+      line-height: 1.3;
+    }
+
+    .hcard-meta {
+      font-size: 0.75rem;
+      margin-top: 1rem;
+      opacity: 0.5;
+    }
+
+    .hcard-dot {
+      width: 8px; height: 8px;
+      background: var(--gold);
+      border-radius: 50%;
+      margin-bottom: 1rem;
+    }
+
+    /* ── STATS BAR ── */
+    .stats-bar {
+      background: var(--ink);
+      color: var(--cream);
+      padding: 2.5rem 4rem;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2rem;
+      position: relative; z-index: 1;
+    }
+
+    .stat { text-align: center; }
+
+    .stat-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 3rem;
+      font-weight: 300;
+      color: var(--gold);
+      line-height: 1;
+    }
+
+    .stat-label {
+      font-size: 0.75rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      opacity: 0.5;
+      margin-top: 0.4rem;
+    }
+
+    /* ── SECTION WRAPPER ── */
+    section { position: relative; z-index: 1; }
+
+    /* ── COURSES ── */
+    .courses {
+      padding: 7rem 4rem;
+    }
+
+    .section-header {
+      display: flex; justify-content: space-between; align-items: flex-end;
+      margin-bottom: 4rem;
+    }
+
+    .section-tag {
+      font-size: 0.7rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
